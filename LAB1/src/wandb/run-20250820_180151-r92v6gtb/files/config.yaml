@@ -1,0 +1,81 @@
+_wandb:
+    value:
+        cli_version: 0.21.1
+        e:
+            qhh2kh7godohbv90n5acffcffnbzgks4:
+                codePath: LAB1/src/comparison.py
+                codePathLocal: comparison.py
+                cpu_count: 20
+                cpu_count_logical: 40
+                cudaVersion: "12.2"
+                disk:
+                    /:
+                        total: "502391562240"
+                        used: "62799613952"
+                email: alessandraspinaci1@gmail.com
+                executable: /home/aspinaci/miniconda3/envs/dla2025/bin/python
+                git:
+                    commit: 66c794bb61e03a158e0a42d61fd91cc1164dd785
+                    remote: https://github.com/alessandraspin/Deep-Learning-Applications-Labs.git
+                gpu: NVIDIA GeForce RTX 2080 Ti
+                gpu_count: 2
+                gpu_nvidia:
+                    - architecture: Turing
+                      cudaCores: 4352
+                      memoryTotal: "11811160064"
+                      name: NVIDIA GeForce RTX 2080 Ti
+                      uuid: GPU-f1b7aa8b-5dc5-99df-9e7b-34e9bcaa7e4d
+                    - architecture: Turing
+                      cudaCores: 4352
+                      memoryTotal: "11811160064"
+                      name: NVIDIA GeForce RTX 2080 Ti
+                      uuid: GPU-7e20d391-d134-3c40-d04e-53831a3757cb
+                host: lannister
+                memory:
+                    total: "270344757248"
+                os: Linux-5.15.0-119-generic-x86_64-with-glibc2.35
+                program: /home/aspinaci/Deep-Learning-Applications-Labs/LAB1/src/comparison.py
+                python: CPython 3.13.5
+                root: /home/aspinaci/Deep-Learning-Applications-Labs/LAB1/src
+                startedAt: "2025-08-20T16:01:51.680506Z"
+                writerId: qhh2kh7godohbv90n5acffcffnbzgks4
+        m: []
+        python_version: 3.13.5
+        t:
+            "1":
+                - 1
+                - 5
+                - 41
+                - 53
+            "2":
+                - 1
+                - 5
+                - 41
+                - 53
+            "3":
+                - 2
+                - 3
+                - 13
+                - 16
+                - 24
+                - 61
+            "4": 3.13.5
+            "5": 0.21.1
+            "12": 0.21.1
+            "13": linux-x86_64
+batch_size:
+    value: 128
+hidden_layers:
+    value: 2
+hidden_sizes:
+    value:
+        - 128
+        - 64
+learning_rate:
+    value: 0.0001
+max_epoch:
+    value: 100
+model_name:
+    value: Dynamic_MLP_2layers
+optimizer:
+    value: SGD
