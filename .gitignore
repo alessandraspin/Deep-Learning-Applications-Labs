@@ -48,7 +48,6 @@ ENV/
 *.tar.gz
 *.zip
 LAB1/data/
-LAB1/src/data/cifar-10-batches-py/
-LAB1/src/data/MNIST/
+LAB1/src/data/
 LAB1/models/
 LAB3/results/
