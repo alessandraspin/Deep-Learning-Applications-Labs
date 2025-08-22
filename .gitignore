@@ -42,3 +42,11 @@ ENV/
 .idea/
 *.sublime-project
 *.sublime-workspace
+
+*.pth
+*.pt
+*.tar.gz
+*.zip
+LAB1/data/
+LAB1/models/
+LAB3/results/
