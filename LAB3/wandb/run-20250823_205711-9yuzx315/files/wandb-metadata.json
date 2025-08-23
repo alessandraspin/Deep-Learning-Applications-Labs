@@ -1,0 +1,47 @@
+{
+  "os": "Linux-5.15.0-119-generic-x86_64-with-glibc2.35",
+  "python": "CPython 3.13.5",
+  "startedAt": "2025-08-23T18:57:11.499310Z",
+  "program": "/home/aspinaci/Deep-Learning-Applications-Labs/LAB3/Lab3-Transformers-new.ipynb",
+  "codePath": "LAB3/Lab3-Transformers-new.ipynb",
+  "codePathLocal": "Lab3-Transformers-new.ipynb",
+  "git": {
+    "remote": "https://github.com/alessandraspin/Deep-Learning-Applications-Labs.git",
+    "commit": "c244599dc794548d27d7cdbcba61748bb6c430c6"
+  },
+  "email": "alessandraspinaci1@gmail.com",
+  "root": "/home/aspinaci/Deep-Learning-Applications-Labs/LAB3",
+  "host": "lannister",
+  "executable": "/home/aspinaci/miniconda3/envs/transformers/bin/python",
+  "cpu_count": 20,
+  "cpu_count_logical": 40,
+  "gpu": "NVIDIA GeForce RTX 2080 Ti",
+  "gpu_count": 2,
+  "disk": {
+    "/": {
+      "total": "502391562240",
+      "used": "86090477568"
+    }
+  },
+  "memory": {
+    "total": "270344757248"
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce RTX 2080 Ti",
+      "memoryTotal": "11811160064",
+      "cudaCores": 4352,
+      "architecture": "Turing",
+      "uuid": "GPU-f1b7aa8b-5dc5-99df-9e7b-34e9bcaa7e4d"
+    },
+    {
+      "name": "NVIDIA GeForce RTX 2080 Ti",
+      "memoryTotal": "11811160064",
+      "cudaCores": 4352,
+      "architecture": "Turing",
+      "uuid": "GPU-7e20d391-d134-3c40-d04e-53831a3757cb"
+    }
+  ],
+  "cudaVersion": "12.2",
+  "writerId": "dpsp0e42dvuopgwurc49rr6orufvf50e"
+}
