@@ -54,6 +54,6 @@ LAB1/models/
 LAB1/models2/
 LAB1/my_Lab1-CNNs.ipynb
 LAB3/results/
-LAB3/clip-tiny-imagenet-finetuned/
+LAB3/clip-finetuned/
 LAB3/wandb/
 LAB4/data/
