@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import torch
 import os
 from torchvision.models import resnet18, ResNet18_Weights
-from models import MLP_2layers, MLP_3layers, ResidualMLP, myCNN, myCNN_improved, DynamicMLP, DynamicResidualMLP, DynamicMLP_improved
+from models import DynamicMLP, DynamicResidualMLP, DynamicMLP_improved
 from dataloader import get_cifar10_loaders, get_mnist_loaders
 from trainer import trainer
 from tester import tester
@@ -36,67 +36,11 @@ if __name__ == "__main__":
 
     print("\nStarting comparative analysis of MLPs with varying layers...")
 
-    # ==============================
-    # DynamicMLP standard
-    # ==============================
+    # ==================================
+    # DynamicMLP
+    # ==================================
     for model_name, hidden_sizes in mlp_configs.items():
-        run_name = f"Dynamic_improved_{model_name}"
-        print(f"\n--- Running experiment for {run_name} ---")
-
-        wandb.init(
-            project=config.wandb_project,
-            name=run_name,
-            group="MLP_Comparison",
-            config={
-                "model_name": run_name,
-                "hidden_layers": len(hidden_sizes),
-                "hidden_sizes": hidden_sizes,
-                "learning_rate": config.lr,
-                "batch_size": config.batch_size,
-                "max_epoch": config.max_epoch,
-                "optimizer": config.optimizer,
-            }
-        )
-
-        # Istanzia modello
-        model = DynamicMLP_improved(input_dim, hidden_sizes, num_classes).to(device)
-        save_path = get_model_path(run_name)
-
-        # Training
-        train_losses, val_losses, val_accuracies, _ = trainer(model, train_loader, val_loader, device, save_path, config)
-
-        # Testing
-        if os.path.exists(save_path):
-            try:
-                model.load_state_dict(torch.load(save_path), strict=True)
-                test_loss, test_accuracy = tester(model, test_loader, device)
-                print(f"Final results for {run_name}: Test Loss: {test_loss:.4f}, Test Accuracy: {test_accuracy:.4f}")
-                if wandb.run is not None:
-                    wandb.log({
-                        "test_accuracy": test_accuracy,
-                        "model_name": run_name
-                    })
-            except RuntimeError as e:
-                print(f"⚠️ State_dict mismatch for {run_name}, skipping load.\n{e}")
-                test_loss, test_accuracy = None, None
-        else:
-            print(f"⚠️ Model file {save_path} not found. Skipping test.")
-            test_loss, test_accuracy = None, None
-
-        all_models_data[run_name] = {
-            "train_losses": train_losses,
-            "val_losses": val_losses,
-            "val_accuracies": val_accuracies,
-            "test_accuracy": test_accuracy
-        }
-
-        wandb.finish()
-
-    # ==================================
-    # DynamicResidualMLP
-    # ==================================
-    """for model_name, hidden_sizes in mlp_configs.items():
-        run_name = f"Residual_{model_name}"
+        run_name = f"Dynamic_Residual_{model_name}"
         print(f"\n--- Running experiment for {run_name} ---")
 
         wandb.init(
@@ -115,7 +59,8 @@ if __name__ == "__main__":
         )
 
         # Istanzia modello residuale
-        model = DynamicResidualMLP(input_dim, hidden_sizes, num_classes).to(device)
+        model = DynamicMLP_improved(input_dim, hidden_sizes, num_classes).to(device)
+        # model = DynamicMLP(input_dim, hidden_sizes, num_classes).to(device)
 
         # Training
         train_losses, val_losses, val_accuracies, _ = trainer(model, train_loader, val_loader, device, config)
@@ -146,7 +91,7 @@ if __name__ == "__main__":
             "test_accuracy": test_accuracy
         }
 
-        wandb.finish() """
+        wandb.finish() 
 
     print("\n--- Comparative analysis complete ---")
 

@@ -3,12 +3,12 @@ import matplotlib.pyplot as plt
 import torch
 import os
 from torchvision.models import resnet18, ResNet18_Weights, resnet50, ResNet50_Weights
-from models import MLP_2layers, MLP_3layers, ResidualMLP, myCNN, myCNN_improved
+from models import MLP_2layers, MLP_3layers, ResidualMLP, myCNN, myCNN_improved, myMidCNN, myDeepCNN
 from dataloader import get_cifar10_loaders, get_mnist_loaders
 from trainer import trainer
 from tester import tester
 from utils import plot_single_performance, get_model_path
-from config import get_config # Importa la nuova funzione
+from config import get_config 
 
 if __name__ == "__main__":
     parser = get_config()
@@ -25,6 +25,10 @@ if __name__ == "__main__":
         model = ResidualMLP().to(device)
     elif config.model == "myCNN":
         model = myCNN().to(device)
+    elif config.model == "myMidCNN":
+        model = myMidCNN().to(device)
+    elif config.model == "myDeepCNN":
+        model = myDeepCNN().to(device)
     elif config.model == "myCNN_improved":
         model = myCNN_improved().to(device)
     elif config.model == "ResNet18":
@@ -42,7 +46,7 @@ if __name__ == "__main__":
     # model_name = model.__class__.__name__
     save_path = os.path.join(os.path.dirname(os.getcwd()), "models", f"best_{config.model}.pth")
 
-    train_losses, val_losses, val_accuracies, best_val_acc = trainer(model, train_loader, val_loader, device, save_path, config)
+    train_losses, val_losses, val_accuracies, best_val_acc = trainer(model, train_loader, val_loader, device, save_path)
     
     if os.path.exists(save_path):
         model.load_state_dict(torch.load(save_path))

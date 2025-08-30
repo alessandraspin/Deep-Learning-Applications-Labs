@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import torch
 import os
 from torchvision.models import resnet18, ResNet18_Weights
-from models import MLP_2layers, MLP_3layers, ResidualMLP, myCNN, myCNN_improved, DynamicMLP, DynamicResidualMLP
+from models import ResidualMLP, DynamicMLP, DynamicResidualMLP, DynamicMLP_improved
 from dataloader import get_cifar10_loaders, get_mnist_loaders
 from trainer import trainer
 from tester import tester
@@ -36,15 +36,11 @@ if __name__ == "__main__":
 
     print("\nStarting comparative analysis of MLPs with varying layers...")
 
-    # ==============================
-    # DynamicMLP standard
-    # ==============================
-
     # ==================================
     # DynamicResidualMLP
     # ==================================
     for model_name, hidden_sizes in mlp_configs.items():
-        run_name = f"Residual_{model_name}"
+        run_name = f"Dynamic_Residual_{model_name}"
         print(f"\n--- Running experiment for {run_name} ---")
 
         wandb.init(
@@ -65,11 +61,11 @@ if __name__ == "__main__":
         # Istanzia modello residuale
         model = DynamicResidualMLP(input_dim, hidden_sizes, num_classes).to(device)
 
-        save_path = get_model_path(run_name)
         # Training
-        train_losses, val_losses, val_accuracies, _ = trainer(model, train_loader, val_loader, device, save_path, config)
+        train_losses, val_losses, val_accuracies, _ = trainer(model, train_loader, val_loader, device, config)
 
         # Testing
+        save_path = get_model_path(run_name)
         if os.path.exists(save_path):
             try:
                 model.load_state_dict(torch.load(save_path), strict=True)
@@ -94,7 +90,7 @@ if __name__ == "__main__":
             "test_accuracy": test_accuracy
         }
 
-        wandb.finish()
+        wandb.finish() 
 
     print("\n--- Comparative analysis complete ---")
 
