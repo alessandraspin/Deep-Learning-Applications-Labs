@@ -50,8 +50,7 @@ ENV/
 LAB1/data/
 LAB1/src/data/
 LAB1/src/wandb/
-LAB1/models/
-LAB1/models2/
+LAB1/wandb/
 LAB1/my_Lab1-CNNs.ipynb
 LAB3/results/
 LAB3/clip-finetuned/
