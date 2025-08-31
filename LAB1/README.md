@@ -71,10 +71,19 @@ In order to visualize and compare the training/validation losses and test accura
 
     python comparison_res_MLP.py --device cuda:1
 
-Then to be able to do the same with the basic `DynamicMLP()`, in the [`comparison_MLP.py`](src/comparison_MLP.py.py) file switch the comments in line [62-63] like so, and re-run the code:
+Then to be able to do the same with the basic `DynamicMLP()`, in the [`comparison_MLP.py`](src/comparison_MLP.py.py) file switch the comments in line [63-64], like so:
 
     # model = DynamicMLP_improved(input_dim, hidden_sizes, num_classes).to(device)
     model = DynamicMLP(input_dim, hidden_sizes, num_classes).to(device)
+
+and in line [43,44], like so:
+
+    # run_name = f"Dynamic_improved_{model_name}"
+    run_name = f"Dynamic_{model_name}"
+
+then save and re-run the code:
+
+    python comparison_MLP.py --device cuda
 
 | Training Loss | Validation Loss | Validation Accuracy | 
 |:-----------------:|:---------------------:|:---------------------:|

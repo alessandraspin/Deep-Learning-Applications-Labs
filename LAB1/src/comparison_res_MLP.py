@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import torch
 import os
 from torchvision.models import resnet18, ResNet18_Weights
-from models import ResidualMLP, DynamicMLP, DynamicResidualMLP, DynamicMLP_improved
+from models import ResidualMLP, DynamicResidualMLP
 from dataloader import get_cifar10_loaders, get_mnist_loaders
 from trainer import trainer
 from tester import tester
@@ -40,7 +40,7 @@ if __name__ == "__main__":
     # DynamicResidualMLP
     # ==================================
     for model_name, hidden_sizes in mlp_configs.items():
-        run_name = f"Dynamic_Residual_{model_name}"
+        run_name = f"Residual_{model_name}"
         print(f"\n--- Running experiment for {run_name} ---")
 
         wandb.init(
