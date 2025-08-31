@@ -1,10 +1,14 @@
 # Laboratory #1
 
 ## Overview
-This laboratory aims to recreate on a small scale in PyTorch the results obtained in the paper that introduced ResNets
-> [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385) Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun, CVPR 2016.
+This laboratory aims to recreate on a small scale in PyTorch the results obtained in the paper that introduced ResNets, [Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385) (Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun, CVPR 2016), in order to demonstrate that these residual networks are easier to optimize and can gain accuracy from increased depth, compared to plain networks, addressing the degradation problem of the training error and the problem of vanishing/exploding gradients.
 
-in order to demonstrate that these residual networks are easier to optimize and can gain accuracy from increased depth, compared to plain networks, addressing the degradation problem of the training error and the problem of vanishing/exploding gradients.
+## Environment setup
+    conda create -n dla2025 ipython pandas matplotlib seaborn scikit-learn jupyterlab ipywidgets
+
+    conda activate dla2025
+
+    pip install -r requirements.txt
 
 ## Data
 The datasets used are MNIST (gray scale images of handwritten digits from 0 to 9), CIFAR10 (60000 RGB images categorized in 10 classes), both suitable for 10-class classification task, and CIFAR100 (60000 RGB images categorized in 100 classes), all available from `torchvision.datasets`.
@@ -98,6 +102,20 @@ These findings verify the claim that residual connections stabilize training and
 
 ### Exercise 1.3 – Rinse and Repeat (but with a CNN)
 > Repeat the verification you did above, but with **Convolutional** Neural Networks and using CIFAR-10. Show that **deeper** CNNs *without* residual connections do not always work better and **even deeper** ones *with* residual connections. 
+
+To solve the instructions above, run the following prompts:
+
+    python main.py --dataset cifar10 --model myCNN --wandb_project LAB1
+
+    python main.py --dataset cifar10 --model myCNN_improved --wandb_project LAB1
+
+    python main.py --dataset cifar10 --model myMidCNN --wandb_project LAB1
+
+    python main.py --dataset cifar10 --model myDeepCNN --wandb_project LAB1
+
+    python main.py --dataset cifar10 --model ResNet18 --wandb_project LAB1
+
+    python main.py --dataset cifar10 --model ResNet50 --wandb_project LAB1
 
 | Training Loss | Validation Loss | Validation Accuracy | 
 |:-----------------:|:---------------------:|:---------------------:|

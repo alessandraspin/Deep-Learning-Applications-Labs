@@ -8,8 +8,7 @@ This repository contains a Jupyter Notebook ([Lab3-Transformers.ipynb](Lab3-Tran
 
     conda activate transformers
 
-    pip install peft
-
+    pip install -r requirements.txt
 
 ## Code Structure
 The exercise il solved entirely in the notebook [Lab3-Transformers.ipynb](Lab3-Transformers.ipynb), but some useful modules are implemented in the folder [/src](src/):

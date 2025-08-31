@@ -3,6 +3,13 @@
 ## Overview
 This repository contains the notebook [Lab4_OOD.ipynb](Lab4_OOD.ipynb), which explores two key concepts: **Out-of-Distribution (OOD) detection** and **Adversarial Training**, which goal is to implement a methodology for identifying samples that don't belong to the training data distribution and to create models that are more resilient to adversarial attacks.
 
+## Environment setup
+Work in the same _env_ created in [LAB1](/Deep-Learning-Applications-Labs/LAB1/README.md).
+
+    conda activate dla2025
+
+    pip install -r requirements.txt
+
 ## Exercises
 
 ### Exercise 1.1 – Build a simple OOD detection pipeline
